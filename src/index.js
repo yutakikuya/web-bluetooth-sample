@@ -11,7 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-import "babel-polyfill"
+//import "babel-polyfill"
 
 const container = document.getElementById("app");
 const store = configureStore();

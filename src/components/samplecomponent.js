@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Paper from 'material-ui/Paper';
-
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
+import {isRequestingDevice} from '../actions/bluetooth'
 class SampleComponent extends React.Component{
   /**
   * コンストラクタ
@@ -10,6 +11,12 @@ class SampleComponent extends React.Component{
   */
   constructor(props){
     super(props);
+
+    this.hundleSubmit = this.hundleSubmit.bind(this);
+  }
+
+  hundleSubmit(){
+    this.props.dispatch(isRequestingDevice());
   }
 
   /**
@@ -24,10 +31,15 @@ class SampleComponent extends React.Component{
       display: 'inline-block',
     };
 
+    const bluetooth_messages = this.props.bluetooth.messages ? <div>{this.props.bluetooth.messages}</div> : "";
+
     return(
+      <div>
+      <RaisedButton label="Search Bluetooth Devices" primary={true} onClick={this.hundleSubmit}/>
       <Paper>
-        {this.props.param1.param1_1}
+        {bluetooth_messages}
       </Paper>
+      </div>
     );
   }
 }
