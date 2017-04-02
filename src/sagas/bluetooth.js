@@ -15,6 +15,7 @@ function* requestedDeviceTask(action) {
     console.log('> Name:             ' + device.name);
     console.log('> Id:               ' + device.id);
     console.log('> Connected:        ' + device.gatt.connected);
+    console.log(device);
     //yield put(requestedDevice(device.name));
   })
   .catch(function (error) {
